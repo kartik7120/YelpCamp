@@ -1,0 +1,32 @@
+<% layout("layout/boilerplate") %>
+    <h1>All campgrounds</h1>
+    <div>
+        <a href="/campgrounds/new">Add campgrounds</a>
+    </div>
+    <ul>
+        <% for(let camp of campgrounds) {%>
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="<%= camp.image %>" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-mg-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= camp.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= camp.description %>
+                            </p>
+                            <p class="card-text"> <small class="text-muted">
+                                    <%= camp.location %>
+                                </small> </p>
+                            <a href="/campgrounds/<%= camp._id %>" class="btn btn-primary">View <%= camp.title %> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+    </ul>
+
+    <!-- All the content will be passes in the boilerplate file and rendered using ejs view engine -->
